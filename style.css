@@ -1,0 +1,196 @@
+:root{color-scheme:dark;font-family:Georgia,'Times New Roman',serif;background:#090b15;color:#fff}
+*{box-sizing:border-box}body{margin:0}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #fff;outline-offset:8px}[hidden]{display:none!important}
+.scene{position:relative;min-height:100svh;overflow:clip;background:linear-gradient(#100d1d 0%,#17172e 46%,#14203d 47%,#0b121d 100%);isolation:isolate}
+.stars{position:absolute;inset:0;z-index:-1}.star{position:absolute;width:2px;height:2px;background:#e6defa;border-radius:50%;animation:twinkle var(--duration) infinite alternate;opacity:.4}
+.moon{position:absolute;top:10%;right:8%;width:58px;aspect-ratio:1;border-radius:50%;background:#f8fdff;box-shadow:0 0 20px #c9deff,0 0 60px #bacdff55}
+.shooting-star{position:absolute;left:-20%;top:20%;width:90px;height:1px;background:linear-gradient(90deg,transparent,#fff);transform:rotate(30deg);animation:shoot 9s 3s infinite}
+.intro{display:grid;place-items:center;min-height:100svh;background:#05070bbd;transition:opacity .6s}.open-gift{display:flex;flex-direction:column;align-items:center;border:0;background:none;color:#e8b4ff;padding:40px}.tap{font:700 clamp(16px,3vw,22px) monospace;letter-spacing:.22em;text-shadow:0 0 12px #b862ff}.heart{font-size:150px;line-height:1.3;color:#bd56df;text-shadow:4px 5px #733193,-4px -2px #f1adff,0 0 22px #b631e7;animation:heartbeat 1.5s ease-in-out infinite}.intro.leaving{opacity:0}
+.gift{position:relative;min-height:100svh;display:flex;align-items:center;flex-direction:column;animation:appear 1s both}h1{z-index:2;font-style:italic;font-weight:normal;color:#c16af1;font-size:clamp(36px,6vw,66px);letter-spacing:.025em;text-shadow:0 0 18px #993bdd77;margin:7svh 16px 0;text-align:center}
+.bouquet{position:relative;width:360px;height:440px;margin-top:25px;transform-origin:50% 90%;animation:sway 6s 3s ease-in-out infinite alternate}.flowers{position:absolute;inset:0}.flower{position:absolute;left:50%;bottom:80px;width:8px;height:var(--height);transform-origin:50% 100%;transform:rotate(var(--angle));animation:grow 1.6s var(--delay) both}.stem{position:absolute;inset:0;background:linear-gradient(90deg,#254a1a,#8cba42,#2f5c20);border-radius:100% 100% 0 0}.leaf{position:absolute;width:53px;height:21px;background:linear-gradient(25deg,#2e581e,#9bc447);border-radius:0 100% 0 100%;top:45%;right:3px;transform:rotate(25deg);transform-origin:right bottom}.leaf.right{top:66%;left:5px;transform:scaleX(-1) rotate(20deg);transform-origin:left bottom}.bloom{position:absolute;top:-38px;left:-27px;width:62px;height:70px;filter:drop-shadow(0 0 9px #b647ff88)}.petal{position:absolute;width:34px;height:58px;left:14px;bottom:0;border-radius:55% 55% 45% 45%;background:radial-gradient(ellipse at 43% 24%,#f7d9ff 0%,#d589f3 25%,#9b40cc 58%,#542270 100%);border:1px solid #ddacfa9c;box-shadow:inset 3px 0 5px #f7d4ff75;transform-origin:50% 95%;animation:bloom 2s var(--delay) both}.petal:nth-child(1){transform:rotate(-32deg);left:3px;bottom:5px}.petal:nth-child(2){transform:rotate(32deg);left:26px;bottom:5px}.petal:nth-child(3){bottom:9px;left:15px;width:31px}.petal:nth-child(4){left:8px;transform:rotate(-13deg);height:51px}.petal:nth-child(5){left:24px;transform:rotate(13deg);width:27px;height:50px}
+.wrapper{position:absolute;bottom:45px;left:76px;width:220px;height:220px;clip-path:polygon(0 0,100% 0,61% 100%,41% 100%);background:linear-gradient(105deg,#351344,#9860b5 48%,#51286f 50%,#b071cf);transform:rotate(-7deg);opacity:.9}.wrapper.back{bottom:15px;transform:rotate(8deg);height:270px;z-index:-1}.wrapper.front{height:155px;background:linear-gradient(75deg,#321543,#8454ad 47%,#cf9ce6 49%,#613881);clip-path:polygon(0 0,52% 22%,100% 0,58% 100%,40% 100%)}.ribbon{position:absolute;bottom:58px;left:153px;width:51px;height:25px;background:#ac5bda;border-radius:50%;box-shadow:15px 3px #6d2ea1,-16px -2px #be74e9;transform:rotate(-8deg)}
+.envelope{position:absolute;left:50%;top:calc(7svh + 370px);transform:translateX(-50%);width:175px;height:108px;border:0;border-radius:3px;background:#f5b5d0;box-shadow:0 5px 20px #0003;animation:appear 1s 2s both;transition:filter .2s}.envelope:hover{filter:brightness(1.13)}.envelope:before{content:'';position:absolute;inset:0;background:#f9c4da;clip-path:polygon(0 0,50% 62%,100% 0,100% 100%,0 100%)}.flap{position:absolute;inset:0;background:#e99dc3;clip-path:polygon(0 0,100% 0,50% 58%)}.seal{position:relative;top:1px;color:#f562ae;font-size:28px;text-shadow:0 1px #ffe9f5}.hint{font:14px/1.6 system-ui,sans-serif;color:#d8bbec;text-align:center;margin:0 20px 30px;animation:appear 1s 2.8s both}
+.letter{position:fixed;inset:0;margin:auto;width:min(440px,calc(100vw - 36px));max-height:85svh;overflow:auto;background:#fffdfd;color:#34484e;border:0;border-radius:9px;padding:17px;box-shadow:0 22px 90px #0007}.letter[open]{animation:letter-in .45s ease-out}.letter::backdrop{background:#0c0b1833;backdrop-filter:blur(2px)}.paper{border:2px dotted #667b7e;padding:23px 17px 14px;font:14px/1.7 system-ui,sans-serif}.paper h2{font-size:17px;margin:0 0 4px}.paper p{margin:0 0 12px}.close{position:absolute;right:6px;top:3px;color:#6c5a72;background:#fffdfd;border:0;font:25px system-ui;width:32px;height:32px;border-radius:50%}.paper .signature{color:#a46a98;font-style:italic;text-align:right;margin:8px 0 0}
+@keyframes twinkle{to{opacity:1;transform:scale(1.5)}}@keyframes heartbeat{50%{transform:scale(1.09)}}@keyframes appear{from{opacity:0}to{opacity:1}}@keyframes grow{from{scale:0 0;opacity:0}to{scale:1 1;opacity:1}}@keyframes bloom{from{scale:.3 .6}to{scale:1 1}}@keyframes sway{from{rotate:-1.5deg}to{rotate:1.5deg}}@keyframes shoot{0%{left:-20%;top:15%;opacity:0}8%{opacity:1}25%,100%{left:110%;top:65%;opacity:0}}@keyframes letter-in{from{opacity:0;transform:translateY(65px) scale(.8)}to{opacity:1;transform:none}}
+@media(max-width:480px){.moon{width:38px;right:5%;top:14%}.bouquet{margin-top:30px;scale:.87;transform-origin:50% 0;margin-bottom:-50px}.envelope{top:calc(7svh + 330px);width:155px;height:96px}.hint{font-size:14px;max-width:270px}h1{font-size:39px;margin-top:8svh}}
+/* Gerakan utama hadiah tetap aktif; kurangi hanya dekorasi latar. */
+@media(prefers-reduced-motion:reduce){.star,.shooting-star,.bouquet{animation:none!important}.shooting-star{display:none}}
+
+/* Denyut ganda lebih terlihat; tangkai tumbuh sebelum kelopak membuka. */
+.heart{animation:heartbeat 1.4s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}18%{transform:scale(1.17)}34%{transform:scale(1.03)}50%{transform:scale(1.12)}70%{transform:scale(1)}}
+.flower{animation:grow 2.8s var(--delay) both}
+/* Kelopak membuka dari kuncup, dengan jeda berbeda di setiap lapis. */
+.bloom .petal{left:50%;top:50%;bottom:auto;width:var(--size,30px);height:var(--size,50px);border-radius:50%;transform-origin:50% 50%;animation:radial-open 2.6s cubic-bezier(.2,.65,.25,1) calc(var(--delay) + 2s + var(--petal-delay)) both}
+.rose .bloom,.daisy .bloom{width:90px;height:90px;left:-41px;top:-45px}
+.rose .petal{background:radial-gradient(ellipse at 35% 20%,#ffe0ec,#ec83b0 38%,#bc387b 74%,#741a51);border:1px solid #ffa9d0;box-shadow:inset 2px 3px 5px #ffd1eaaa,0 2px 5px #70153e55;border-radius:48% 52% 36% 44%}
+.rose .ring-1{background:radial-gradient(ellipse at 30% 20%,#ffbfdb,#dd5597 58%,#89204e)}
+.rose .ring-2{background:radial-gradient(ellipse at 30% 20%,#ffc0d9,#c73e7c 60%,#79183c)}
+.daisy .petal{width:17px;height:var(--size);border-radius:55% 55% 35% 35%;background:linear-gradient(90deg,#ccbaed,#fffafa 45%,#ecddff 72%,#a58aca);border:1px solid #f8eaff;box-shadow:inset 0 -7px 8px #ab82cc55,0 1px 4px #40245244}
+.flower-center{position:absolute;left:50%;top:50%;width:23px;height:23px;border-radius:50%;background:radial-gradient(circle at 36% 30%,#fff4a4,#f4c743 45%,#b97512);box-shadow:inset -2px -3px 5px #b47720;animation:center-open 1.5s calc(var(--delay) + 3s) both}
+.rose .flower-center{width:12px;height:12px;background:radial-gradient(circle at 30% 30%,#f8adc9,#a42560 65%,#64183f);box-shadow:none}
+.tulip .bloom .petal{top:auto;bottom:0;left:50%;width:31px;height:59px;border-radius:55% 55% 40% 40%;transform-origin:50% 100%;background:radial-gradient(ellipse at 40% 20%,#fbe4ff,#d38cf0 30%,#943dc5 65%,#53236e);animation-name:tulip-open}
+@keyframes radial-open{0%{transform:translate(-50%,-50%) rotate(var(--open-angle)) translateY(-3px) scale(.18,.45)}100%{transform:translate(-50%,-50%) rotate(var(--open-angle)) translateY(calc(-1 * var(--radius))) scale(1)}}
+@keyframes tulip-open{0%{transform:translateX(-50%) rotate(0deg) scaleX(.45) scaleY(.8)}100%{transform:translateX(-50%) rotate(var(--open-angle)) scale(1)}}
+@keyframes center-open{from{transform:translate(-50%,-50%) scale(.1)}to{transform:translate(-50%,-50%) scale(1)}}
+.envelope{animation-delay:6s}
+.hint{animation-delay:6.4s}
+.replay{display:block;margin:-14px auto 30px;padding:9px 19px;border:1px solid #c78bea66;border-radius:22px;background:#251731b3;color:#eed4ff;font:14px/1.4 system-ui,sans-serif;transition:background .2s,transform .2s}
+.replay:hover{background:#51316c;transform:translateY(-2px)}
+.paper p,.paper h2{white-space:pre-line;overflow-wrap:anywhere}
+
+/* Merpati dan amplop bergerak bersama dari kejauhan menuju pembaca. */
+.bouquet{z-index:1}
+.courier{position:absolute;z-index:0;top:calc(7svh + 205px);left:50%;width:220px;height:240px;transform-origin:50% 50%;transform:translateX(-50%) perspective(850px) translateZ(-1800px);animation:dove-arrives 6s 6s linear both;will-change:transform;pointer-events:none}
+.courier-hover{position:relative;width:100%;height:100%}
+.dove{display:block;width:100%;height:auto;aspect-ratio:1;filter:drop-shadow(0 5px 8px #08051c44)}
+.courier .envelope{top:164px;width:112px;height:70px;margin:0;animation:none;pointer-events:auto;box-shadow:0 5px 16px #180a3044;transform:translateX(-50%) rotate(-4deg)}
+.courier .envelope:disabled{pointer-events:none;cursor:default}
+.courier-hover:hover,.courier-hover:focus-within{animation-play-state:paused}
+.courier .seal{font-size:23px}
+.dove-speech{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);width:236px;padding:12px 14px;border:1px solid #e8cafa;background:#fff5ff;color:#633a79;border-radius:18px;box-shadow:0 4px 24px #17082444;text-align:center;pointer-events:auto;animation:appear .45s both}
+.dove-speech:after{content:'';position:absolute;top:100%;left:48%;border:9px solid transparent;border-top-color:#fff5ff}
+.dove-speech p{margin:0;font:15px/1.5 system-ui,sans-serif}
+.hint{animation-delay:12s}
+@keyframes dove-arrives{0%{opacity:0}8%,100%{opacity:1}}
+@media(max-width:480px){.courier{top:calc(7svh + 215px);width:185px;height:210px}.courier .envelope{top:139px;width:102px;height:65px}.dove-speech{width:225px}.hint{max-width:300px}}
+@media(prefers-reduced-motion:reduce){.courier-hover{animation:none}.courier{animation-timing-function:ease-in-out}}
+
+/* Detail penyerahan surat, tanpa mengubah susunan adegan utama. */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.open-gift{transition:filter .2s,scale .2s}
+.open-gift:hover{filter:brightness(1.12);scale:1.035}
+.open-gift:active{scale:.97}
+.courier .envelope{perspective:650px;isolation:isolate;transition:filter .2s,opacity .25s}
+.envelope:before{z-index:2;pointer-events:none}
+.envelope .flap{z-index:3;transform-origin:50% 0;transition:transform .55s ease,z-index 0s .25s;backface-visibility:visible;pointer-events:none}
+.envelope .seal{z-index:4;display:inline-block;transition:opacity .2s,filter .2s}
+.envelope:not(:disabled):hover .seal,.envelope:focus-visible .seal{filter:drop-shadow(0 0 5px #ff77bb);scale:1.09}
+.envelope:not(:disabled):active .seal{scale:.92}
+.letter-slip{position:absolute;left:9%;top:8%;width:82%;height:80%;z-index:1;background:#fffafa;color:#bd709c;border:1px solid #eed5e5;border-radius:3px;font:24px/1.8 Georgia,serif;box-shadow:0 2px 5px #51224e22;pointer-events:none}
+.letter-slip:before,.letter-slip:after{content:'';position:absolute;left:17%;right:17%;height:1px;background:#ddbdd0;bottom:22%}
+.letter-slip:after{bottom:13%;right:28%}
+.envelope.is-opening .flap{transform:rotateX(180deg);z-index:0}
+.envelope.is-opening .seal{opacity:0}
+.envelope.is-opening .letter-slip{animation:slip-out .8s .2s ease-in-out both}
+.courier .envelope.is-delivered{opacity:0;pointer-events:none}
+@keyframes slip-out{0%{transform:translateY(0)}65%{transform:translateY(-82%)}100%{transform:translateY(-120%) scale(1.15)}}
+.dove-speech{min-height:50px}
+.speech-visual{min-height:1.5em}
+.paper{font-size:16px;line-height:1.6}
+.letter[open] .paper>*{animation:paper-reveal .55s both}
+.letter[open] .paper>#message-top{animation-delay:.12s}
+.letter[open] .paper>#message-bottom{animation-delay:.24s}
+.letter[open] .paper>.signature{animation-delay:.36s}
+@keyframes paper-reveal{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.falling-petals{position:absolute;inset:0;pointer-events:none;z-index:3}
+.falling-petals i{position:absolute;top:85px;left:75px;width:10px;height:15px;border-radius:80% 15% 70% 30%;background:linear-gradient(125deg,#f3b6db,#b7519f);opacity:0;animation:petal-drift 4s 5.8s both;--drift:-65px}
+.falling-petals i:nth-child(2){top:48px;left:210px;background:linear-gradient(125deg,#ead2ff,#9e5acb);animation-delay:6.2s;--drift:70px}
+.falling-petals i:nth-child(3){top:118px;left:270px;background:linear-gradient(125deg,#fffaff,#e4d1f8);animation-delay:6.7s;--drift:45px}
+@keyframes petal-drift{0%{opacity:0;transform:translate(0,0) rotate(0)}12%{opacity:.75}85%{opacity:.55}100%{opacity:0;transform:translate(var(--drift),260px) rotate(250deg)}}
+@media(max-width:480px){h1{font-size:clamp(30px,9vw,39px)}.letter{width:calc(100vw - 24px);max-height:calc(100svh - 24px);padding:14px}.paper{padding:23px 14px 14px}.close{width:40px;height:40px}.replay{min-height:44px}.dove-speech{max-width:calc(100vw - 32px)}}
+@media(prefers-reduced-motion:reduce){.falling-petals{display:none}.letter[open] .paper>*{animation-duration:.2s;animation-delay:0s}}
+
+.meteor-shower{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.meteor{position:absolute;width:95px;height:1px;background:linear-gradient(90deg,transparent,#e3d5ff 85%,#fff);box-shadow:0 0 3px #c4b6f366;opacity:0;animation:meteor-fall var(--meteor-duration) var(--meteor-delay) linear infinite}
+.meteor:after{content:'';position:absolute;right:0;top:-1px;width:3px;height:3px;background:#fff;border-radius:50%;box-shadow:0 0 6px #fff}
+@keyframes meteor-fall{0%,5%{opacity:0;transform:translate(-180px,-110px) rotate(32deg)}9%{opacity:.85}26%,100%{opacity:0;transform:translate(75vw,52vw) rotate(32deg)}}
+.flower-rain{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:3}
+.rain-flower{position:absolute;top:-35px;width:26px;height:26px;opacity:0;animation:flower-fall var(--rain-speed) var(--rain-delay) linear both}
+.rain-bloom{display:block;position:relative;width:26px;height:26px;transform:scale(var(--rain-scale));--flower-light:#ffe0ed;--flower-dark:#d576ae}
+.shade-1 .rain-bloom{--flower-light:#f3e2ff;--flower-dark:#a36ccc}
+.shade-2 .rain-bloom{--flower-light:#fff;--flower-dark:#d6c8ed}
+.rain-bloom i{position:absolute;left:50%;top:50%;width:8px;height:12px;border-radius:70% 70% 40% 40%;background:linear-gradient(var(--flower-light),var(--flower-dark));transform:translate(-50%,-50%) rotate(var(--petal-angle)) translateY(-7px)}
+.rain-bloom b{position:absolute;left:50%;top:50%;width:7px;height:7px;transform:translate(-50%,-50%);border-radius:50%;background:#f0d476}
+@keyframes flower-fall{0%{opacity:0;transform:translate(0,0) rotate(0deg)}10%,85%{opacity:.7}100%{opacity:0;transform:translate(var(--rain-drift),var(--fall-height)) rotate(230deg)}}
+@media(max-width:480px){.rain-flower{scale:.85}.meteor{width:65px}}
+@media(prefers-reduced-motion:reduce){.meteor-shower{display:none}.rain-flower{animation-duration:8s}}
+
+/* Fokus membaca dan akses kembali tanpa mengulang perjalanan. */
+button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.replay,.read-again{min-height:44px}
+.close{min-width:44px;min-height:44px}
+.letter .close{position:sticky;top:11px;right:auto;z-index:5;display:block;margin:0 -11px -44px auto;transform:translateY(-11px)}
+.letter button:focus-visible{outline-color:#8f4d99;outline-offset:2px}
+.read-again{margin:-20px auto 28px;padding:9px 18px;border:1px solid #d7b7eb55;border-radius:24px;background:#1a1225aa;color:#ead4f8;font:14px/1.4 system-ui,sans-serif;transition:background .2s,transform .2s;animation:paper-reveal .5s both}
+.read-again:hover{background:#3d2854;transform:translateY(-1px)}
+.read-again:active,.replay:active{transform:translateY(1px)}
+.gift[data-state="delivered"] .envelope:not(:disabled){box-shadow:0 5px 16px #180a3044,0 0 16px #f4b5d535}
+.meteor-shower,.stars,.flower-rain{transition:opacity .35s}
+.reading-letter .meteor-shower{opacity:.15}
+.reading-letter .stars{opacity:.55}
+.reading-letter .flower-rain{opacity:.2}
+.reading-letter .meteor,.reading-letter .rain-flower{animation-play-state:paused}
+.letter{overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#cba8c0 #fffafa}
+.letter.is-closing{animation:letter-out .22s ease-in both}
+.letter.is-closing::backdrop{animation:backdrop-out .22s ease-in both}
+@keyframes letter-out{from{opacity:1;transform:translateY(0) scale(1)}to{opacity:0;transform:translateY(9px) scale(.975)}}
+@keyframes backdrop-out{to{background:transparent;backdrop-filter:blur(0)}}
+@media(max-width:480px){.gift{padding-bottom:env(safe-area-inset-bottom,0px)}.read-again{max-width:calc(100vw - 32px)}.letter{padding-bottom:max(14px,env(safe-area-inset-bottom,0px))}}
+
+/* Penutup: hujan bunga habis, bintang berkumpul, lalu pesan terakhir. */
+.bouquet{transition:margin-top 1.6s ease-in-out}
+.gift:is([data-ending="rain"],[data-ending="connecting"],[data-ending="gathering"],[data-ending="complete"]) .bouquet{margin-top:116px}
+.ending-stars{position:absolute;left:50%;top:-102px;width:72px;height:96px;transform:translateX(-50%);pointer-events:none}
+.ending-star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff0ff;box-shadow:0 0 5px #fff,0 0 11px #e3a5ff;opacity:0}
+.gift:is([data-ending="gathering"],[data-ending="complete"]) .ending-star{animation:star-gather 1.8s var(--gather-delay) cubic-bezier(.2,.65,.2,1) both}
+.ending-star:nth-child(4n){width:4px;height:4px;background:#ffd4e8;box-shadow:0 0 6px #ffdef1,0 0 14px #dd83f8}
+.ending-love{position:absolute;top:72px;left:50%;width:180px;margin-left:-90px;padding-left:.24em;opacity:0;color:#f8daff;text-align:center;white-space:nowrap;font:600 14px/1.6 system-ui,sans-serif;letter-spacing:.24em;text-shadow:0 0 8px #f0b7ff,0 0 20px #c473e9}
+.gift[data-ending="complete"] .ending-love{animation:ending-reveal 1.4s ease-out both}
+.ending-message{width:min(440px,calc(100vw - 40px));margin:0 20px 30px;color:#f0d8fa;text-align:center;text-wrap:balance;font:italic clamp(17px,4.3vw,20px)/1.6 Georgia,serif;text-shadow:0 0 18px #c072df55;animation:ending-reveal 1.4s ease-out both}
+.ending-calm .meteor-shower{opacity:0;transition:opacity 3.5s ease-out}
+.ending-still .meteor{animation-play-state:paused}
+.gift[data-state="flying"] .bouquet{transition:none}
+.reading-letter :is(.ending-star,.ending-message,.ending-love,.paired-star,.star-link,.hug-glow,.hug-message){animation-play-state:paused!important}
+@keyframes star-gather{0%{opacity:0;transform:translate(var(--gather-x),var(--gather-y)) scale(.3)}18%{opacity:.7}100%{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes ending-reveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:480px){.gift:is([data-ending="rain"],[data-ending="connecting"],[data-ending="gathering"],[data-ending="complete"]) .bouquet{margin-top:112px}}
+
+/* Dua bintang saling menyapa sebelum hati terbentuk. */
+.star-bridge{position:absolute;top:29px;left:50%;width:min(68vw,560px);height:1px;transform:translateX(-50%);transition:opacity 1.2s}
+.paired-star{position:absolute;top:-3px;left:0;width:6px;height:6px;border-radius:50%;background:#fff1fd;box-shadow:0 0 9px #fff,0 0 22px #e3adff;opacity:.7}
+.paired-star:last-child{left:auto;right:0;background:#ffe8d2;box-shadow:0 0 9px #fff,0 0 22px #ffd5ab}
+.paired-star:before,.paired-star:after{content:'';position:absolute;left:50%;top:50%;width:19px;height:1px;transform:translate(-50%,-50%);background:linear-gradient(90deg,transparent,#fff,transparent)}
+.paired-star:after{transform:translate(-50%,-50%) rotate(90deg)}
+.star-link{position:absolute;left:3px;right:3px;height:1px;transform-origin:left center;background:linear-gradient(90deg,#edc4ffbb,#f3d7ff66,#ffdcbbbb);box-shadow:0 0 6px #d9b6e8;opacity:.6}
+.gift:is([data-ending="connecting"],[data-ending="gathering"]) .paired-star{animation:paired-signal 1.4s ease-in-out 2 both}
+.gift:is([data-ending="connecting"],[data-ending="gathering"]) .paired-star:last-child{animation-delay:.65s}
+.gift:is([data-ending="connecting"],[data-ending="gathering"]) .star-link{animation:bridge-reveal 1.45s .9s ease-in-out both}
+.gift[data-ending="complete"] .star-bridge{opacity:0}
+@keyframes paired-signal{0%,100%{opacity:.4;scale:.7}45%{opacity:1;scale:1.4}}
+@keyframes bridge-reveal{from{opacity:0;transform:scaleX(0)}to{opacity:.6;transform:scaleX(1)}}
+
+/* Pelukan lokal: satu cahaya hangat dan pesan singkat, tanpa suara. */
+.gift-actions{display:flex;flex-direction:column;align-items:center;gap:10px;max-width:calc(100vw - 32px);margin:-14px 16px 28px}
+.letter-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.gift-actions .replay,.gift-actions .read-again{margin:0}
+.send-hug{min-height:44px;padding:10px 23px;border:1px solid #e7b5d785;border-radius:26px;background:linear-gradient(130deg,#704267,#45325c);color:#fff0f8;font:15px/1.4 system-ui,sans-serif;box-shadow:0 0 20px #dd91bf15;transition:background .2s,transform .2s,box-shadow .2s}
+.send-hug:hover{box-shadow:0 0 22px #dd91bf35;transform:translateY(-1px)}
+.send-hug:active{transform:translateY(1px)}
+.send-hug[aria-disabled="true"]{cursor:default}
+.hug-message{min-height:23px;max-width:280px;margin:0;color:#ffdbdc;text-align:center;text-wrap:balance;opacity:0;font:14px/1.6 system-ui,sans-serif}
+.hug-glow{position:absolute;inset:-20px -55px 0;z-index:-2;border-radius:50%;background:radial-gradient(ellipse,transparent 16%,#ffdda543 36%,#eca0c32b 60%,transparent 74%);opacity:0;pointer-events:none}
+.hug-glow:after{content:'';position:absolute;inset:12% 10%;border:1px solid #ffc9bb55;border-radius:50%;box-shadow:0 0 35px #efb6bc22}
+.sending-hug .hug-glow{animation:hug-warmth 3.4s ease-out both}
+.sending-hug .hug-message{animation:hug-note 3.4s ease both}
+@keyframes hug-warmth{0%{opacity:0;transform:scale(.7)}25%{opacity:.9}70%{opacity:.5}100%{opacity:0;transform:scale(1.13)}}
+@keyframes hug-note{0%,100%{opacity:0;transform:translateY(5px)}15%,80%{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){
+  .bouquet{transition:none}
+  .gift:is([data-ending="gathering"],[data-ending="complete"]) .ending-star{animation:appear .8s both}
+  .ending-message,.gift[data-ending="complete"] .ending-love{animation:appear .8s both}
+  .gift:is([data-ending="connecting"],[data-ending="gathering"]) .paired-star{animation:appear .65s both}
+  .gift:is([data-ending="connecting"],[data-ending="gathering"]) .paired-star:last-child{animation-delay:.3s}
+  .gift:is([data-ending="connecting"],[data-ending="gathering"]) .star-link{animation:appear .65s .6s both}
+  .sending-hug .hug-glow,.sending-hug .hug-message{animation:hug-soft 3.4s both}
+}
+@keyframes hug-soft{0%,100%{opacity:0}15%,80%{opacity:.85}}
+
+/* Musik opsional; kontrol muncul setelah lagu tersedia. */
+.letter-actions{max-width:100%}
+.music-toggle{min-height:44px;padding:9px 17px;border:1px solid #c8b2de66;border-radius:24px;background:#21182c;color:#e6d6f2;font:14px/1.4 system-ui,sans-serif;transition:background .2s,transform .2s}
+.music-toggle:hover{background:#463156;transform:translateY(-1px)}
+.music-toggle:active{transform:translateY(1px)}
+.music-toggle[aria-pressed="true"]{border-color:#ddb5d791;color:#ffe9f6}
+.letter-music{position:sticky;bottom:0;z-index:6;display:flex;justify-content:center;margin:12px 0 0;padding:8px 0 0;border-top:1px solid #e8d9e5;background:#fffdfd;box-shadow:0 max(20px,env(safe-area-inset-bottom,0px)) 0 #fffdfd}
+.letter-music .music-toggle{background:#f6edf6;color:#724b79;border-color:#d8bddb}
+.letter-music .music-toggle:hover{background:#eddfef}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hati kecil, kupu-kupu, dan buket bunga di bawah langit cerah. Happy 4 months, sayang.">
+  <title>Flowers For You</title>
+  <link rel="stylesheet" href="style.css?v=ldr-music1">
+  <link rel="stylesheet" href="daylight.css?v=speech5">
+  <link rel="preload" href="assets/crystal-heart.png" as="image">
+  <link rel="preload" href="assets/butterfly-atlas.png" as="image">
+  <script src="dove.js?v=20260910-wings5" defer></script>
+  <script src="music.js?v=garden3" defer></script>
+  <script src="opening.js?v=daylight2" defer></script>
+  <script src="garden.js?v=garden4" defer></script>
+  <script src="script.js?v=speech5" defer></script>
+</head>
+<body>
+  <audio id="background-music" data-src="assets/music.mp3" loop preload="none"></audio>
+  <main class="scene">
+    <div class="daylight-backdrop" aria-hidden="true"></div>
+    <div class="cloud-layer" aria-hidden="true"><i class="cloud"></i><i class="cloud"></i><i class="cloud"></i><i class="cloud"></i></div>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="sun" aria-hidden="true"><span></span></div>
+    <canvas class="sky-birds" aria-hidden="true"></canvas>
+    <canvas class="touch-petals" aria-hidden="true"></canvas>
+    <section class="intro" aria-label="Buka hadiah">
+      <div class="floating-hearts" aria-hidden="true"></div>
+      <div class="intro-dedication"><p>For You</p><span>Happy 4 Months ♡</span></div>
+      <button class="open-gift" type="button" aria-label="Buka hadiah bunga dan surat">
+        <span class="heart-stage" aria-hidden="true">
+          <span class="heart-halo"></span>
+          <span class="heart-orbit orbit-back"></span>
+          <img class="heart" src="assets/crystal-heart.png" width="1254" height="1254" alt="" fetchpriority="high">
+          <span class="heart-orbit orbit-front"></span>
+          <span class="heart-glint glint-one">✧</span><span class="heart-glint glint-two">✧</span>
+        </span>
+        <span class="tap">TAP TO OPEN</span>
+      </button>
+      <p class="intro-footnote">Sedikit bahagia, khusus untukmu.</p>
+    </section>
+    <canvas class="butterfly-transition" aria-hidden="true" hidden></canvas>
+    <section class="gift" aria-label="Bunga untukmu" tabindex="-1" hidden>
+      <div class="flower-rain" aria-hidden="true"></div>
+      <h1>Flowers For You</h1>
+      <div class="bouquet" aria-hidden="true">
+        <div class="hug-glow"></div>
+        <div class="ending-keepsake" hidden>
+          <canvas class="keepsake-butterflies" width="540" height="144"></canvas>
+          <span class="ending-love">I LOVE YOU SANISHA SAYANG</span>
+        </div>
+        <div class="wrapper back"></div>
+        <div class="flowers"></div>
+        <div class="wrapper front"></div>
+        <div class="ribbon">
+          <svg viewBox="0 0 104 78" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="ribbon-satin" x1="0" y1="0" x2=".85" y2="1" gradientUnits="objectBoundingBox"><stop stop-color="#ffe0e7"/><stop offset=".42" stop-color="#eba8c0"/><stop offset=".68" stop-color="#c87e9e"/><stop offset="1" stop-color="#f3b9cc"/></linearGradient>
+              <linearGradient id="ribbon-fold" x2="1" y2=".2"><stop stop-color="#b9678e"/><stop offset=".5" stop-color="#f1b5c9"/><stop offset="1" stop-color="#d68ba8"/></linearGradient>
+            </defs>
+            <path class="ribbon-tail tail-left" d="M43 35 Q34 52 20 65 L32 62 L36 76 Q43 61 54 42Z" fill="url(#ribbon-fold)"/>
+            <path class="ribbon-tail tail-right" d="M59 36 Q67 54 84 65 L74 65 L70 77 Q57 60 50 43Z" fill="url(#ribbon-satin)"/>
+            <path d="M50 33 C37 14 14 10 8 21 C0 36 29 49 49 42 Q54 37 50 33Z" fill="url(#ribbon-satin)" stroke="#c783a1" stroke-width=".7"/>
+            <path d="M55 33 C71 11 94 11 98 24 C102 39 76 48 56 42 Q50 38 55 33Z" fill="url(#ribbon-satin)" stroke="#c783a1" stroke-width=".7"/>
+            <path d="M12 25 Q23 21 47 35 M94 26 Q82 22 58 36" fill="none" stroke="#fff0e9" stroke-width="1.7" opacity=".65"/>
+            <path d="M14 35 Q30 36 47 40 M91 36 Q75 37 58 40" fill="none" stroke="#b7668e" stroke-width="1.4" opacity=".6"/>
+            <path d="M46 29 Q52 27 59 31 L61 44 Q53 48 45 43Z" fill="url(#ribbon-fold)" stroke="#cc8aa7" stroke-width=".7"/>
+            <path d="M49 31 Q47 37 49 43" fill="none" stroke="#ffe5e9" stroke-width="1.5" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="falling-petals"><i></i><i></i><i></i></div>
+      </div>
+      <div class="courier">
+        <div class="courier-hover">
+          <canvas class="dove" width="600" height="600" role="img" aria-label="Merpati putih mengepakkan kedua sayap sambil membawa surat"></canvas>
+          <button class="envelope" aria-label="Buka surat yang dibawa merpati" type="button" disabled><span class="letter-slip" aria-hidden="true">♡</span><span class="flap"></span><span class="seal">♥</span></button>
+        </div>
+        <div class="dove-speech" hidden>
+          <div class="speech-copy"><p class="speech-size" aria-hidden="true"></p><p class="speech-visual" aria-hidden="true"></p></div>
+          <span class="sr-only speech-announcement" role="status"></span>
+        </div>
+      </div>
+      <p class="hint">Klik amplop yang dibawa merpatinya ♡</p>
+      <p class="ending-message" role="status" hidden></p>
+      <div class="gift-actions">
+        <button class="send-hug" type="button" hidden>Peluk dari jauh ♡</button>
+        <p class="hug-message" role="status" aria-live="polite" hidden></p>
+        <div class="letter-actions">
+          <button class="replay" type="button" aria-label="Ulangi seluruh adegan dari bunga mekar">↻ Ulangi</button>
+          <button class="read-again" type="button" hidden>♡ Baca surat lagi</button>
+          <button class="music-toggle" type="button" aria-controls="background-music" aria-pressed="false" hidden>♪ Nyalakan musik</button>
+        </div>
+      </div>
+    </section>
+    <dialog class="letter" aria-labelledby="letter-title">
+      <button class="close" aria-label="Tutup surat" type="button">×</button>
+      <div class="paper">
+        <h2 id="letter-title"></h2>
+        <p id="message-top"></p>
+        <p id="message-bottom"></p>
+        <p class="signature" id="signature"></p>
+      </div>
+      <div class="letter-music" hidden>
+        <button class="music-toggle" type="button" aria-controls="background-music" aria-pressed="false" hidden>♪ Nyalakan musik</button>
+      </div>
+    </dialog>
+  </main>
+</body>
+</html>

@@ -1,0 +1,138 @@
+/* Tema siang: bentuk bunga, perjalanan merpati, dan urutan surat tetap di style.css. */
+:root{color-scheme:light;background:#d4eef4;color:#355b68}
+.scene{background:#c3e8f3}
+.daylight-backdrop{position:fixed;inset:0;z-index:-3;pointer-events:none;background:linear-gradient(#ffffff18,#fff9e73b),url('assets/daylight-sky.png') center/cover no-repeat}
+.daylight-backdrop:after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 46%,#fffdf933,transparent 66%)}
+.daylight-backdrop:after{opacity:var(--sun-strength,1);transition:opacity .6s ease}
+.cloud-layer{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.cloud{--cloud-width:clamp(210px,34vw,490px);position:absolute;top:16%;left:calc(-1 * var(--cloud-width));width:var(--cloud-width);height:clamp(80px,10vw,145px);opacity:.35;background:radial-gradient(ellipse at 50% 68%,#fffdf2 5%,#fffdf27d 40%,transparent 69%);filter:blur(7px);animation:cloud-cross 116s -25s linear infinite}
+.cloud:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 37% 43%,#fffcf5a8,transparent 37%),radial-gradient(ellipse at 61% 36%,#fffef5bf,transparent 41%)}
+.cloud:nth-child(2){top:5%;--cloud-width:clamp(170px,26vw,380px);opacity:.3;animation-duration:143s;animation-delay:-101s}
+.cloud:nth-child(3){top:37%;--cloud-width:clamp(250px,40vw,570px);opacity:.24;animation-duration:132s;animation-delay:-74s}
+.cloud:nth-child(4){top:59%;opacity:.22;animation-duration:154s;animation-delay:-125s}
+@keyframes cloud-cross{from{transform:translateX(-20px)}to{transform:translateX(calc(100vw + var(--cloud-width) + 20px))}}
+.stars{position:fixed;z-index:-1;pointer-events:none}
+.star{background:#fffdf3;box-shadow:0 0 5px #fff9db;opacity:.25;animation-name:daylight-dust}
+@keyframes daylight-dust{from{opacity:.15;transform:translateY(5px)}to{opacity:.65;transform:translateY(-8px)}}
+.sun{position:fixed;z-index:-2;top:8svh;right:9%;width:clamp(48px,6vw,78px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 38% 35%,#fffde3 8%,#ffe7a1 65%,#ffdda18c 78%,transparent 80%);box-shadow:0 0 35px 12px #fff4b885,0 0 110px 45px #fff5b950;pointer-events:none}
+.sun:before,.sun:after{content:'';position:absolute;inset:-95%;border-radius:50%;background:repeating-conic-gradient(from 5deg,#fff3bd2a 0deg,transparent 12deg 30deg);mask-image:radial-gradient(circle,transparent 18%,#000 40%,transparent 70%);animation:sun-rays 75s linear infinite}
+.sun:after{inset:-170%;opacity:.4;animation-direction:reverse;animation-duration:95s}
+.sun{opacity:var(--sun-strength,1);transition:opacity .6s ease}
+.sky-birds{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.touch-petals{position:fixed;inset:0;width:100%;height:100%;z-index:4;pointer-events:none}
+@keyframes sun-rays{to{transform:rotate(360deg)}}
+button:focus-visible{outline-color:#467681}
+.intro{position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% 49%,#fff4ed55,transparent 61%);min-height:100svh;overflow:hidden;transition:opacity .9s;grid-template-rows:1fr auto 1fr;padding:28px 16px}
+.intro-dedication{align-self:end;text-align:center;margin-bottom:14px;z-index:2;pointer-events:none;color:#49687a;text-shadow:0 2px 12px #fffffff0}
+.intro-dedication p{font:italic clamp(30px,4.4vw,48px)/1.25 Georgia,serif;margin:0 0 9px}
+.intro-dedication span{font:500 11px/1.6 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#665974}
+.open-gift{z-index:2;position:relative;padding:4px 24px 20px;color:#644e69;gap:12px;max-width:100%;border-radius:50%;transition:filter .25s,scale .25s}
+.open-gift:hover{filter:brightness(1.025);scale:1.025}
+.open-gift:disabled{cursor:default}
+.heart-stage{position:relative;display:block;width:clamp(210px,32vw,330px);aspect-ratio:1;isolation:isolate}
+.heart{display:block;position:relative;z-index:2;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 15px 24px #b7679129);animation:glass-heartbeat 2.3s ease-in-out infinite}
+@keyframes glass-heartbeat{0%,65%,100%{transform:scale(1) translateY(2px)}17%{transform:scale(1.065) translateY(-2px)}32%{transform:scale(1.015) translateY(0)}45%{transform:scale(1.045) translateY(-1px)}}
+.heart-halo{position:absolute;inset:-12%;border-radius:50%;background:radial-gradient(circle,#fffaf7aa 15%,#ffdded4d 45%,transparent 69%);z-index:-1}
+.heart-orbit{position:absolute;left:-13%;top:37%;width:126%;height:28%;border:1.2px solid #fffcf5da;border-radius:50%;box-shadow:0 0 8px #fff5;transform:rotate(-22deg);pointer-events:none}
+.orbit-back{z-index:1;top:33%;height:33%;transform:rotate(24deg);border-bottom-color:transparent;animation:orbit-breathe 6s ease-in-out infinite alternate}
+.orbit-front{z-index:3;border-top-color:transparent;border-right-color:#fffdf46b;animation:orbit-breathe 7s 1s ease-in-out infinite alternate}
+@keyframes orbit-breathe{to{translate:0 -7px;scale:1.05}}
+.heart-glint{position:absolute;z-index:4;color:#fffdf4;font:40px/1 Georgia,serif;text-shadow:0 0 10px #fff;animation:glass-glint 2.8s ease-in-out infinite}
+.glint-one{left:15%;top:22%}.glint-two{right:11%;bottom:29%;font-size:27px;animation-delay:1.2s}
+@keyframes glass-glint{0%,100%{opacity:.3;scale:.7}50%{opacity:1;scale:1.12}}
+.tap{color:#60536b;font:600 12px/1.6 system-ui,sans-serif;letter-spacing:.24em;text-shadow:0 1px 12px #fff;padding:12px 18px;border-bottom:1px solid #86758a55}
+.intro-footnote{align-self:start;text-align:center;z-index:2;margin:13px 16px 0;color:#557484;font:italic 14px/1.6 Georgia,serif;text-shadow:0 1px 12px #fff}
+.floating-hearts{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floating-heart{position:absolute;left:var(--left);top:100%;width:var(--size);height:var(--size);background:url('assets/crystal-heart.png') center/contain no-repeat;filter:hue-rotate(var(--hue));opacity:0;animation:little-heart-rise var(--duration) var(--delay) linear infinite;will-change:transform}
+@keyframes little-heart-rise{0%{opacity:0;transform:translate(0,0) rotate(-15deg)}14%,73%{opacity:.6}100%{opacity:0;transform:translate(var(--drift),-115svh) rotate(25deg)}}
+.intro.departing .open-gift{pointer-events:none;animation:heart-send .9s ease both}
+.intro.departing :is(.intro-dedication,.intro-footnote){opacity:0;transition:opacity .6s}
+@keyframes heart-send{to{opacity:0;transform:scale(.74) translateY(-12px)}}
+.butterfly-transition{position:fixed;inset:0;z-index:20;width:100%;height:100%;pointer-events:none}
+h1{color:#7a548b;text-shadow:0 2px 18px #fff,0 1px 1px #fff9}
+.bloom{filter:drop-shadow(0 4px 5px #61888227)}
+/* Angin memakai rotate terpisah agar gerakan tumbuh dan sudut tangkai tetap utuh. */
+.flower{animation:grow 2.8s var(--delay) both,stem-breeze 8s calc(5.4s + var(--delay)) ease-in-out infinite}
+.leaf{animation:leaf-breeze 8s calc(5.55s + var(--delay)) ease-in-out infinite}
+.leaf.right{animation-delay:calc(5.72s + var(--delay))}
+.wrapper{transform-origin:50% 95%;animation:paper-breeze 8s 5.8s ease-in-out infinite}
+.wrapper.front{animation-delay:6s}
+@keyframes stem-breeze{0%,100%{rotate:0deg}28%{rotate:1.05deg}56%{rotate:-.65deg}78%{rotate:.35deg}}
+@keyframes leaf-breeze{0%,100%{rotate:0deg}28%{rotate:3.2deg}56%{rotate:-2deg}78%{rotate:1deg}}
+@keyframes paper-breeze{0%,100%{rotate:0deg}28%{rotate:.75deg}56%{rotate:-.4deg}78%{rotate:.2deg}}
+.perched-butterfly{position:absolute;left:-75px;top:-183px;width:240px;height:250px;z-index:2;pointer-events:none}
+.stem{background:linear-gradient(90deg,#376847,#99bb68,#477d52)}
+.leaf{background:linear-gradient(25deg,#43774f,#a4c97b)}
+.tulip .bloom .petal{background:radial-gradient(ellipse at 40% 20%,#fff3ff,#dda8ed 34%,#b478cc 68%,#7c548f);border-color:#f5dcff;box-shadow:inset 3px 0 5px #fff5}
+.rose .petal{background:radial-gradient(ellipse at 35% 20%,#fff0ef,#f3a8bd 38%,#d56797 76%,#a24573);border-color:#ffcad9;box-shadow:inset 2px 3px 5px #ffeaf2aa,0 2px 4px #8f50672b}
+.rose .ring-1{background:radial-gradient(ellipse at 30% 20%,#ffdfeb,#e98cae 58%,#b65a83)}
+.rose .ring-2{background:radial-gradient(ellipse at 30% 20%,#ffe2eb,#dc799f 60%,#ab4b77)}
+.daisy .petal{background:linear-gradient(90deg,#dfd8ec,#fffef5 45%,#f7eef9 72%,#c2b5d8);box-shadow:inset 0 -7px 8px #baacc52b,0 1px 4px #53694722}
+.wrapper{opacity:.97;background:linear-gradient(105deg,#90b6a8,#e8f0d6 48%,#b4d2b7 50%,#f5f4de)}
+.wrapper.front{background:linear-gradient(75deg,#8caf9e,#c9dec5 47%,#fff8e1 49%,#a7c6b3)}
+.ribbon{left:128px;bottom:28px;width:104px;height:78px;background:none;border-radius:0;box-shadow:none;filter:drop-shadow(0 2px 2px #9f668631)}
+.ribbon svg{display:block;width:100%;height:100%;overflow:visible}
+.ribbon-tail{transform-box:fill-box;transform-origin:50% 0;animation:ribbon-breeze 8s 6.1s ease-in-out infinite}
+.ribbon-tail.tail-right{animation-delay:6.3s}
+@keyframes ribbon-breeze{0%,100%{rotate:0deg}28%{rotate:2.4deg}56%{rotate:-1.5deg}78%{rotate:.8deg}}
+.hint{color:#435f6a;text-shadow:0 1px 8px #fff}
+.dove{filter:drop-shadow(0 5px 7px #52758633)}
+.dove-speech{background:#fffdf6;color:#56636d;border-color:#e5d2d8;box-shadow:0 6px 24px #577c8420}
+.dove-speech{width:clamp(236px,29vw,292px);max-width:calc(100vw - 36px);padding:14px 16px}
+.speech-copy{display:grid;max-height:min(20svh,150px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#d5baca transparent}
+.dove-speech .speech-copy p{grid-area:1/1;white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;line-height:1.65}
+.speech-size{visibility:hidden;pointer-events:none;user-select:none}
+.dove-speech.speech-leaving{animation:speech-goodbye var(--speech-fade,450ms) ease-in both}
+@keyframes speech-goodbye{from{opacity:1;translate:0 0}to{opacity:0;translate:0 -5px}}
+.dove-speech:after{border-top-color:#fffdf6}
+.replay,.read-again,.music-toggle{background:#fffff1c7;color:#4e6970;border-color:#7599a158;box-shadow:0 3px 14px #597d8110;backdrop-filter:blur(5px)}
+.replay:hover,.read-again:hover,.music-toggle:hover{background:#fffdf6}
+.music-toggle[aria-pressed="true"]{color:#9e587b;border-color:#c49caa}
+.send-hug{background:linear-gradient(130deg,#c47e9b,#a96588);color:#fffaf9;border-color:#bd7e9d;box-shadow:0 4px 18px #a05b8130}
+.send-hug:hover{box-shadow:0 4px 22px #a05b8150}
+.hug-message{color:#965578}
+.ending-star,.ending-star:nth-child(4n){background:#be6b9c;box-shadow:0 0 3px #fff,0 0 7px #d687b0}
+.ending-star:nth-child(4n){background:#cc8a53}
+.ending-love{color:#975e87;text-shadow:0 1px 9px #fff}
+.ending-message{color:#6d5678;text-shadow:0 1px 12px #fff}
+.ending-keepsake{position:absolute;left:50%;top:-90px;width:270px;height:72px;transform:translateX(-50%);pointer-events:none}
+.keepsake-butterflies{position:absolute;inset:0;width:270px;height:72px}
+.ending-keepsake .ending-love{top:16px;min-height:40px;display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1.5;letter-spacing:.18em;width:154px;margin-left:-77px;padding-left:.18em;white-space:normal;text-wrap:wrap}
+.gift:is([data-ending="gathering"],[data-ending="complete"]) .ending-keepsake{animation:keepsake-arrive 1.5s ease-out both}
+.reading-letter .ending-keepsake{animation-play-state:paused!important}
+@keyframes keepsake-arrive{from{opacity:0;translate:0 -13px}to{opacity:1;translate:0 0}}
+.paired-star{background:#b06d9d;box-shadow:0 0 10px #fff,0 0 20px #ce8fb1}
+.paired-star:last-child{background:#c69b45;box-shadow:0 0 10px #fff,0 0 20px #efc885}
+.paired-star:before,.paired-star:after{background:linear-gradient(90deg,transparent,#a66d97,transparent)}
+.star-link{background:linear-gradient(90deg,#b37ba6,#7baeb2,#c59f68);box-shadow:0 0 6px #fff}
+.hug-glow{background:radial-gradient(ellipse,transparent 16%,#fff2a896 36%,#edb4bf4d 60%,transparent 74%)}
+.letter{box-shadow:0 22px 90px #43687955}
+.letter::backdrop{background:#d8eaf13d;backdrop-filter:blur(5px)}
+.paper{border-color:#acbfae}
+.paper h2{color:#936481}
+.reading-letter :is(.star,.sun:before,.sun:after){animation-play-state:paused}
+.reading-letter :is(.cloud,.bouquet,.flower,.leaf,.wrapper,.ribbon-tail){animation-play-state:paused!important}
+@media(max-width:600px){
+ .daylight-backdrop{background-size:auto 100%;background-position:48% center}
+ .sun{right:8%;top:12px;width:34px}
+ .intro-dedication{margin-bottom:24px}
+ .heart-stage{width:clamp(200px,66vw,275px)}
+ .intro-footnote{font-size:13px;margin-top:7px}
+ .open-gift{gap:14px;padding-inline:20px}
+}
+@media(max-height:530px) and (min-width:601px){
+ .intro{padding:14px;grid-template-rows:1fr auto 1fr}
+ .intro-dedication{margin-bottom:0}.intro-dedication p{font-size:25px;margin-bottom:3px}
+ .heart-stage{width:190px}.open-gift{gap:0;padding-bottom:0}.tap{font-size:10px;padding:8px 14px}
+ .intro-footnote{font-size:12px;margin-top:7px}
+}
+@media(prefers-reduced-motion:reduce){
+ .dove-speech.speech-leaving{animation-name:appear;animation-direction:reverse}
+ .cloud,.leaf,.wrapper,.ribbon-tail{animation:none}
+ .cloud{transform:translateX(34vw)}.cloud:nth-child(2){transform:translateX(100vw)}.cloud:nth-child(3){transform:translateX(80vw)}.cloud:nth-child(4){transform:translateX(58vw)}
+ .flower{animation:grow 2.8s var(--delay) both}
+ .heart,.heart-glint,.heart-orbit,.floating-heart,.sun:before,.sun:after{animation:none}
+ .floating-heart{top:var(--rest-top);opacity:.35;will-change:auto}
+ .intro.departing .open-gift{animation:appear .5s reverse both}
+ .gift:is([data-ending="gathering"],[data-ending="complete"]) .ending-keepsake{animation:appear .7s both}
+}
